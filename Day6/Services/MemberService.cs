@@ -24,6 +24,8 @@ namespace Day6.Services
             {
                 item.FirstName = member.FirstName;
                 item.LastName = member.LastName;
+                item.Gender=member.Gender;
+                item.DateOfBirth = member.DateOfBirth;
                 item.BirthPlace = member.BirthPlace;
                 item.PhoneNumber = member.PhoneNumber;
             }
