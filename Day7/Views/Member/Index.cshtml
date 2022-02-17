@@ -1,0 +1,44 @@
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Index";
+    var name = @HttpContextAccessor.HttpContext.Session.GetString("name");
+}
+
+<div class="table-control">
+    <a href="@Url.Action("CreatePeople","Member")" class="btn btn-dark px-5">Create</a>
+    <table class="table table-striped table-bordered table-hover mt-1">
+        <thead>
+            <tr class="thead-dark">
+                <th>First Name </th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Date Of Bith</th>
+                <th>Bith Place</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><a href="@Url.Action("UpdatePeople","Member",new {id = @item.id})">@item.FirstName</a></td>
+                    <td>@item.LastName</td>
+                    <td>@item.Gender</td>
+                    <td>@item.DateOfBirth</td>
+                    <td>@item.BirthPlace</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    @if (name == null)
+    {
+        <div>Person Deleted: null</div>
+    }
+    else
+    {
+        <div>Person Deleted: @HttpContextAccessor.HttpContext.Session.GetString("name")</div>
+    }
+</div>

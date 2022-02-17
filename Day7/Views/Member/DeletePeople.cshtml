@@ -1,0 +1,7 @@
+@model Day7.Models.MembeModel
+@{
+    ViewData["Title"] = "DeletePeople";
+}
+<h1>Delete Confirmation</h1>
+<h2>Person @Model.FirstName was removed from list successfully!!!</h2>
+<a class="btn btn-dark ml-2" href="@Url.Action("Index","Member")">Back To List</a>
