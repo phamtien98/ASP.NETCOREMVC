@@ -1,0 +1,11 @@
+@model Day6.Models.MembeModel
+@{
+    ViewData["Title"] = "DeletePeople";
+}
+@using (Html.BeginForm())
+{
+    <h1>Are u sure u want to delete @Model.FirstName</h1>
+    <input type="submit" class="btn btn-danger ml-2" value="DeletePeople" />
+
+    <a class="btn btn-dark ml-2" href="@Url.Action("Index","Member")">Back To List</a>
+}
